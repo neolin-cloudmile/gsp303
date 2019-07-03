@@ -1,7 +1,7 @@
 variable "instance_name" {}
 variable "instance_zone" {}
 variable "instance_type" {}
-variable "instance_bootdisk" {}
+variable "instance_imagetype" {}
 variable "instance_subnetwork" {}
 
 resource "google_compute_instance" "vm_instance" {
@@ -10,7 +10,7 @@ resource "google_compute_instance" "vm_instance" {
   machine_type = "${var.instance_type}"
   boot_disk {
     initialize_params {
-      image = "${var.instance_bootdisk}"
+      image = "${var.instance_imagetype}"
     }
   }
   network_interface {

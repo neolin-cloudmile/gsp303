@@ -24,20 +24,20 @@ resource "google_compute_firewall" "securenetwork-allow-http-ssh-rdp-icmp" {
 }
 # Add the vm-securehost instance
 module "vm-securehost" {
-  source           = "./instance"
-  instance_name    = "vm-securehost"
-  instance_zone    = "us-central1-a"
-  instance_type    = "n1-standard-1"
-  instance_bootdisk = "windows-cloud/windows-2016"
+  source              = "./instance"
+  instance_name       = "vm-securehost"
+  instance_zone       = "us-central1-a"
+  instance_type       = "n1-standard-1"
+  instance_imagetype  = "windows-cloud/windows-2016"
   instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
 }
 # Add the vm-bastionhost instance
 module "vm-bastionhost" {
-  source           = "./instance"
-  instance_name    = "vm-bastionhost"
-  instance_zone    = "us-central1-a"
-  instance_type    = "n1-standard-1"
-  instance_bootdisk = "windows-cloud/windows-2016"
+  source              = "./instance"
+  instance_name       = "vm-bastionhost"
+  instance_zone       = "us-central1-a"
+  instance_type       = "n1-standard-1"
+  instance_imagetype  = "windows-cloud/windows-2016"
   instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
 }
 
