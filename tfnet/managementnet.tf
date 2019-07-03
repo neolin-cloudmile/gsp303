@@ -31,9 +31,9 @@ module "vm-securehost" {
   instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
 }
 # Add the vm-bastionhost instance
-module "vm-securehost" {
+module "vm-bastionhost" {
   source           = "./instance"
-  instance_name    = "vm-securehost"
+  instance_name    = "vm-bastionhost"
   instance_zone    = "us-central1-a"
   instance_type    = "n1-standard-1"
   instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
