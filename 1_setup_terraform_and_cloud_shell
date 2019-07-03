@@ -1,0 +1,46 @@
+#Install Terraform
+# In Cloud Shell, configure your Cloud Shell environment to use Terraform by installing it with the appropriate package.
+
+1.Download Terraform by running the following command:
+
+wget https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip
+
+2.Unzip Terraform by running the following command:
+
+unzip terraform_0.11.11_linux_amd64.zip
+
+3.Set the PATH environmental variable to Terraform binaries:
+
+export PATH="$PATH:$HOME/terraform"
+cd /usr/bin
+sudo ln -s $HOME/terraform
+cd $HOME
+source ~/.bashrc
+
+4.Confirm the Terraform installation by running the following command:
+
+terraform --version
+
+5.Export the GCP project into an environment variable by running the following command in Cloud Shell:
+
+export GOOGLE_PROJECT=$(gcloud config get-value project)
+
+6.Create a directory for your Terraform configuration by running the following command:
+
+mkdir tfnet
+
+#Initialize Terraform
+# Terraform uses a plugin-based architecture to support the numerous infrastructure and service providers available. Each "Provider" is its own encapsulated binary distributed separately from Terraform itself. Initialize Terraform by setting Google as the provider.
+
+1.Name a new file provider.tf in the tfnet folder and edit it:
+
+vi provider.tf
+
+2.Copy the code into provider.tf:
+
+provider "google" {}
+
+3.Initialize Terraform by running the following commands:
+
+cd tfnet
+terraform init
