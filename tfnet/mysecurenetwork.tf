@@ -8,7 +8,7 @@ resource "google_compute_subnetwork" "securesubnet-us" {
   name          = "securesubnet-us"
   region        = "us-central1"
   network       = "${google_compute_network.securenetwork.self_link}"
-  ip_cidr_range = "10.130.0.0/20"
+  ip_cidr_range = "172.16.0.0/16"
 }
 # Add a firewall rule to allow HTTP, SSH, and RDP traffic on securenetwork
 resource "google_compute_firewall" "securenetwork-allow-http-ssh-rdp-icmp" {
