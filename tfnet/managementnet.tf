@@ -30,7 +30,7 @@ module "vm-securehost" {
   instance_type       = "n1-standard-1"
   instance_imagetype  = "windows-cloud/windows-2016"
   instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
-  instance_subnetwork = "default"
+  instance_subnetwork1 = "default"
 }
 # Add the vm-bastionhost instance
 module "vm-bastionhost" {
@@ -40,5 +40,6 @@ module "vm-bastionhost" {
   instance_type       = "n1-standard-1"
   instance_imagetype  = "windows-cloud/windows-2016"
   instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
+  instance_subnetwork1 = "default"
 }
 
