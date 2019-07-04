@@ -35,7 +35,7 @@ module "vm-securehost" {
 }
 # Add the vm-bastionhost instance
 module "vm-bastionhost" {
-  source              = "./instance"
+  source              = "./bastionhost"
   instance_name       = "vm-bastionhost"
   instance_zone       = "us-central1-a"
   instance_type       = "n1-standard-1"
