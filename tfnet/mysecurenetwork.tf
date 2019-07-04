@@ -19,7 +19,7 @@ resource "google_compute_firewall" "securenetwork-allow-rdp" {
       protocol = "tcp"
       ports    = ["3389"] 
   }
-  target_tags = ["bastionhost-rdp"]
+  target_tags = ["allow-rdp"]
   source_ranges = ["0.0.0.0/0"]
 }
 # Add the vm-securehost instance
@@ -28,6 +28,7 @@ module "vm-securehost" {
   instance_name       = "vm-securehost"
   instance_zone       = "us-central1-a"
   instance_type       = "n1-standard-1"
+  instance_tags       = "allow-rdp"
   instance_imagetype  = "windows-cloud/windows-2016"
   instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
   instance_subnetwork1 = "default"
@@ -39,7 +40,7 @@ module "vm-bastionhost" {
   instance_zone       = "us-central1-a"
   instance_type       = "n1-standard-1"
   instance_imagetype  = "windows-cloud/windows-2016"
-  instance_tags       = "bastionhost-rdp"
+  instance_tags       = "allow-rdp"
   instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
   instance_subnetwork1 = "default"
 }
