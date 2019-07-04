@@ -1,4 +1,4 @@
- Create the securenetwork network
+# Create the securenetwork network
   resource "google_compute_network" "securenetwork" {
   name = "securenetwork"
   auto_create_subnetworks = "false"
