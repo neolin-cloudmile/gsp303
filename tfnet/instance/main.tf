@@ -18,9 +18,7 @@ resource "google_compute_instance" "vm_instance" {
   }
   network_interface {
     subnetwork = "${var.instance_subnetwork}"
-    if [ "${instance_ephemeralip}" -eq 1 ]; then
-      access_config {}
-    fi
+    "${var.instance_ephemeralip}"
   }
   network_interface {
     subnetwork = "${var.instance_subnetwork1}"

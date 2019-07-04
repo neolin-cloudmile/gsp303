@@ -29,7 +29,7 @@ module "vm-securehost" {
   instance_zone       = "us-central1-a"
   instance_type       = "n1-standard-1"
   instance_imagetype  = "windows-cloud/windows-2016"
-  instance_ephemeralip = "0"
+  instance_ephemeralip = ""
   instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
   instance_subnetwork1 = "default"
 }
@@ -40,7 +40,7 @@ module "vm-bastionhost" {
   instance_zone       = "us-central1-a"
   instance_type       = "n1-standard-1"
   instance_imagetype  = "windows-cloud/windows-2016"
-  instance_ephemeralip = "1"
+  instance_ephemeralip = "access_config {}"
   instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
   instance_subnetwork1 = "default"
 }
