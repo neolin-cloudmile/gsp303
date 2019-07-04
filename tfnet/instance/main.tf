@@ -3,6 +3,7 @@ variable "instance_zone" {}
 variable "instance_type" {}
 variable "instance_imagetype" {}
 variable "instance_subnetwork" {}
+variable "instance_subnetwork1" {}
 
 resource "google_compute_instance" "vm_instance" {
   name         = "${var.instance_name}"
@@ -15,6 +16,12 @@ resource "google_compute_instance" "vm_instance" {
   }
   network_interface {
     subnetwork = "${var.instance_subnetwork}"
+    access_config {
+      # Allocate a one-to-one NAT IP to the instance
+    }
+  }
+  network_interface {
+    subnetwork = "${var.instance_subnetwork1}"
     access_config {
       # Allocate a one-to-one NAT IP to the instance
     }
