@@ -4,8 +4,6 @@ variable "instance_type" {}
 variable "instance_imagetype" {}
 variable "instance_subnetwork" {}
 variable "instance_subnetwork1" {}
-variable "instance_ephemeralip" {}
-
 
 resource "google_compute_instance" "vm_instance" {
   name         = "${var.instance_name}"
@@ -18,7 +16,8 @@ resource "google_compute_instance" "vm_instance" {
   }
   network_interface {
     subnetwork = "${var.instance_subnetwork}"
-    "${var.instance_ephemeralip}"
+    access_config {
+    }
   }
   network_interface {
     subnetwork = "${var.instance_subnetwork1}"
