@@ -11,17 +11,16 @@ resource "google_compute_subnetwork" "securesubnet-us" {
   ip_cidr_range = "172.16.0.0/16"
   private_ip_google_access = "true"
 }
-# Add a firewall rule to allow HTTP, SSH, and RDP traffic on securenetwork
-resource "google_compute_firewall" "securenetwork-allow-http-ssh-rdp-icmp" {
-  name = "securenetwork-allow-http-ssh-rdp-icmp"
+# Add a firewall rule to allow RDP traffic on securenetwork
+resource "google_compute_firewall" "securenetwork-allow-rdp" {
+  name = "securenetwork-allow-rdp"
   network = "${google_compute_network.securenetwork.self_link}"
   allow {
       protocol = "tcp"
-      ports    = ["22", "80", "3389"] 
+      ports    = ["3389"] 
   }
-  allow {
-      protocol = "icmp"
-  }
+  target_tas = ["bashtion-rdp"]
+  source_ranges = ["0.0.0.0/0"]
 }
 # Add the vm-securehost instance
 module "vm-securehost" {
