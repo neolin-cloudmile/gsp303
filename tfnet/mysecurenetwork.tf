@@ -1,4 +1,4 @@
-# Create the securenetwork network
+ Create the securenetwork network
   resource "google_compute_network" "securenetwork" {
   name = "securenetwork"
   auto_create_subnetworks = "false"
@@ -19,7 +19,7 @@ resource "google_compute_firewall" "securenetwork-allow-rdp" {
       protocol = "tcp"
       ports    = ["3389"] 
   }
-  target_tas = ["bashtion-rdp"]
+  target_tags = ["bastionhost-rdp"]
   source_ranges = ["0.0.0.0/0"]
 }
 # Add the vm-securehost instance
@@ -39,6 +39,7 @@ module "vm-bastionhost" {
   instance_zone       = "us-central1-a"
   instance_type       = "n1-standard-1"
   instance_imagetype  = "windows-cloud/windows-2016"
+  instance_tags       = "bastionhost-rdp"
   instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
   instance_subnetwork1 = "default"
 }
