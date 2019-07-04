@@ -3,6 +3,12 @@ variable "instance_zone" {}
 variable "instance_type" {}
 variable "instance_imagetype" {}
 variable "instance_subnetwork" {}
+variable "access_config" {
+  type = "list"
+  default = [
+    {},
+  ]
+}
 variable "instance_subnetwork1" {}
 
 resource "google_compute_instance" "vm_instance" {
@@ -16,8 +22,7 @@ resource "google_compute_instance" "vm_instance" {
   }
   network_interface {
     subnetwork = "${var.instance_subnetwork}"
-    access_config {
-    }
+    access_config = ["${var.access_config}"]
   }
   network_interface {
     subnetwork = "${var.instance_subnetwork1}"
