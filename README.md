@@ -14,3 +14,7 @@ gcloud compute instances get-serial-port-output my-instance --zone us-central1-a
 
 Check GCS objects
 gsutil ls -r gs://win-startup-scripts/
+
+Set a new user and get password from windows instances
+gcloud compute reset-windows-password vm-bastionhost --user app_admin --zone us-central1-a
+
