@@ -5,3 +5,12 @@ https://weblog.west-wind.com/posts/2017/may/25/automating-iis-feature-installati
 
 Google Cloud - Compute Engine
 https://cloud.google.com/compute/docs/tutorials/basic-webserver-iis
+
+Create a instance windows server
+gcloud compute instances create instance-win --image-family=windows-2016 --image-project=windows-cloud --zone=us-central1-a --scopes storage-ro --metadata windows-startup-script-url=gs://win-startup-scripts/setupserver.ps1
+
+Check serial port outport of GCE
+gcloud compute instances get-serial-port-output my-instance --zone us-central1-a
+
+Check GCS objects
+gsutil ls -r gs://win-startup-scripts/
