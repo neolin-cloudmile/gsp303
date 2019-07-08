@@ -25,6 +25,6 @@ resource "google_compute_instance" "vm_instance" {
     subnetwork = "${var.instance_subnetwork1}"
   }
   metadata {
-    windows-startup-script-url = "gs://win-startup-scripts/SetupIIS.ps1"
+    windows-startup-script-url = "gs://win-startup-scripts/setupserver.ps1"
   }
 }
