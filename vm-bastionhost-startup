@@ -1,0 +1,80 @@
+SeaBIOS (version 1.8.2-20190620_103534-google)
+Total RAM Size = 0x00000000f0000000 = 3840 MiB
+CPUs found: 1     Max CPUs supported: 1
+found virtio-scsi at 0:3
+virtio-scsi vendor='Google' product='PersistentDisk' rev='1' type=0 removable=0
+virtio-scsi blksize=512 sectors=104857600 = 51200 MiB
+drive 0x000f2730: PCHS=0/0/0 translation=lba LCHS=1024/255/63 s=104857600
+Booting from Hard Disk 0...
+2019/07/09 02:13:21 GCEWindowsAgent: GCE Agent Started (version 4.6.0@1)
+2019/07/09 02:13:27 GCEWindowsAgent: ERROR main.go:130: Network error when requesting metadata, make sure your instance has an active network and can reach the metadata server.
+2019/07/09 02:13:27 GCEWindowsAgent: ERROR main.go:133: Get http://metadata.google.internal/computeMetadata/v1/?recursive=true&alt=json&wait_for_change=true&timeout_sec=60&last_etag=NONE: dial tcp: lookup metadata.google.internal: getaddrinfow: The requested name is valid, but no data of the requested type was found.
+2019/07/09 02:13:56 GCEInstanceSetup: Starting sysprep specialize phase.
+2019/07/09 02:13:57 GCEInstanceSetup: All networks set to DHCP.
+2019/07/09 02:13:57 GCEInstanceSetup: Running 'netsh' with arguments 'interface ipv4 set interface Ethernet mtu=1460'
+2019/07/09 02:13:59 GCEInstanceSetup: --> Ok.
+2019/07/09 02:13:59 GCEInstanceSetup: Running 'netsh' with arguments 'interface ipv4 set interface Ethernet 2 mtu=1460'
+2019/07/09 02:13:59 GCEInstanceSetup: --> Ok.
+2019/07/09 02:13:59 GCEInstanceSetup: MTU set to 1460.
+2019/07/09 02:13:59 GCEInstanceSetup: Running 'route' with arguments '/p add 169.254.169.254 mask 255.255.255.255 0.0.0.0 if 4 metric 1'
+2019/07/09 02:13:59 GCEInstanceSetup: --> OK!
+2019/07/09 02:13:59 GCEInstanceSetup: Added persistent route to metadata netblock via first netkvm adapter.
+2019/07/09 02:13:59 GCEInstanceSetup: Getting hostname from metadata server.
+2019/07/09 02:14:00 GCEInstanceSetup: Changing hostname from WIN-V6AMSN4C8JQ to vm-bastionhost.
+2019/07/09 02:14:00 GCEInstanceSetup: Renamed from WIN-V6AMSN4C8JQ to vm-bastionhost.
+2019/07/09 02:14:00 GCEMetadataScripts: Starting specialize scripts (version 4.2.2@1).
+2019/07/09 02:14:01 GCEMetadataScripts: No specialize scripts to run.
+2019/07/09 02:14:01 GCEMetadataScripts: Finished running specialize scripts.
+2019/07/09 02:14:01 GCEInstanceSetup: Finished with sysprep specialize phase, restarting...
+2019/07/09 02:14:01 GCEWindowsAgent: GCE Agent Stopped
+SeaBIOS (version 1.8.2-20190620_103534-google)
+Total RAM Size = 0x00000000f0000000 = 3840 MiB
+CPUs found: 1     Max CPUs supported: 1
+found virtio-scsi at 0:3
+virtio-scsi vendor='Google' product='PersistentDisk' rev='1' type=0 removable=0
+virtio-scsi blksize=512 sectors=104857600 = 51200 MiB
+drive 0x000f2730: PCHS=0/0/0 translation=lba LCHS=1024/255/63 s=104857600
+Booting from Hard Disk 0...
+2019/07/09 02:14:37 GCEWindowsAgent: GCE Agent Started (version 4.6.0@1)
+2019/07/09 02:15:02 GCEInstanceSetup: Disabled Ctrl + Alt + Del.
+2019/07/09 02:15:03 GCEInstanceSetup: Enable RDP firewall rules.
+2019/07/09 02:15:03 GCEInstanceSetup: Running 'netsh' with arguments 'advfirewall firewall set rule group=remote desktop new enable=Yes'
+2019/07/09 02:15:07 GCEInstanceSetup: --> Updated 3 rule(s).
+2019/07/09 02:15:07 GCEInstanceSetup: --> Ok.
+2019/07/09 02:15:07 GCEInstanceSetup: Restarting Terminal Service services, to enable RDP.
+2019/07/09 02:15:15 GCEInstanceSetup: Enabled Remote Desktop.
+2019/07/09 02:15:16 GCEInstanceSetup: Configuring WinRM...
+2019/07/09 02:15:22 GCEInstanceSetup: Running 'netsh' with arguments 'advfirewall firewall add rule profile=any name=Windows Remote Management (HTTPS-In) dir=in localport=5986 protocol=TCP action=allow'
+2019/07/09 02:15:23 GCEInstanceSetup: --> Ok.
+2019/07/09 02:15:23 GCEInstanceSetup: Setup of WinRM complete.
+2019/07/09 02:15:23 GCEInstanceSetup: Running startup scripts from metadata server.
+2019/07/09 02:15:24 GCEInstanceSetup: Running 'schtasks' with arguments '/run /tn GCEStartup'
+2019/07/09 02:15:25 GCEInstanceSetup: --> SUCCESS: Attempted to run the scheduled task "GCEStartup".
+2019/07/09 02:15:25 GCEInstanceSetup: ------------------------------------------------------------
+2019/07/09 02:15:25 GCEInstanceSetup: Instance setup finished. vm-bastionhost is ready to use.
+2019/07/09 02:15:25 GCEInstanceSetup: ------------------------------------------------------------
+2019/07/09 02:15:33 GCEMetadataScripts: Starting startup scripts (version 4.2.2@1).
+2019/07/09 02:15:33 GCEMetadataScripts: Found windows-startup-script-url in metadata.
+2019/07/09 02:15:36 GCEMetadataScripts: Failed to download GCS path: error reading object "startup.ps1": Get https://storage.googleapis.com/win-startup-scripts/startup.ps1: metadata: GCE metadata "instance/service-accounts/default/token?scopes=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdevstorage.full_control" not defined
+2019/07/09 02:15:36 GCEMetadataScripts: Trying unauthenticated download
+2019/07/09 02:15:42 windows-startup-script-url: 
+2019/07/09 02:15:43 windows-startup-script-url: 
+2019/07/09 02:15:43 windows-startup-script-url:     Directory: C:\PowerShell-MNUNEZ
+2019/07/09 02:15:43 windows-startup-script-url: 
+2019/07/09 02:15:44 windows-startup-script-url: 
+2019/07/09 02:15:44 windows-startup-script-url: Mode                LastWriteTime         Length Name                          
+2019/07/09 02:15:44 windows-startup-script-url: ----                -------------         ------ ----                          
+2019/07/09 02:15:44 windows-startup-script-url: d-----         7/9/2019   2:15 AM                Ezines                        
+2019/07/09 02:15:44 windows-startup-script-url: 
+2019/07/09 02:15:45 windows-startup-script-url: 
+2019/07/09 02:15:45 GCEMetadataScripts: windows-startup-script-url exit status 0
+2019/07/09 02:15:45 GCEMetadataScripts: Finished running startup scripts.
+2019/07/09 02:16:08 GCEInstanceSetup: Checking instance license activation status.
+2019/07/09 02:16:08 GCEInstanceSetup: vm-bastionhost needs to be activated by a KMS Server.
+2019/07/09 02:16:08 GCEInstanceSetup: Key Management Service machine name set to kms.windows.googlecloud.com successfully.
+2019/07/09 02:16:08 GCEInstanceSetup: Installed product key CB7KF-BWN84-R7R2Y-793K2-8XDDG successfully.
+2019/07/09 02:16:08 GCEInstanceSetup: Activating instance...
+2019/07/09 02:16:08 GCEInstanceSetup: Activating Windows(R), ServerDatacenter edition (21c56779-b449-4d20-adfc-eece0e1ad74b) ...
+2019/07/09 02:16:08 GCEInstanceSetup: Product activated successfully.
+2019/07/09 02:16:08 GCEInstanceSetup: Activation successful.
+
