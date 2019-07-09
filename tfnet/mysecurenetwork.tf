@@ -34,9 +34,10 @@ resource "google_compute_firewall" "securenetwork-allow-http" {
   source_ranges = ["0.0.0.0/0"]
 }
 # Create a new storage - bucket
-resource "google_storage_bucket" "test-image-store" {
-  name     = "test-image-store-bucket"
-  location = "us-central1"
+module "test-image-store-bucket" {
+  source           = "./storage"
+  storage_name     = "test-image-store-bucket"
+  storage_location = "us-central1"
 }
 # Add the vm-securehost instance
 module "vm-securehost" {
