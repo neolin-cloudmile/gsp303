@@ -5,7 +5,6 @@ variable "instance_imagetype" {}
 variable "instance_tags" {}
 variable "instance_subnetwork" {}
 variable "instance_subnetwork1" {}
-variable "instance_startupscript" {}
 
 resource "google_compute_instance" "vm_instance" {
   name         = "${var.instance_name}"
@@ -24,8 +23,5 @@ resource "google_compute_instance" "vm_instance" {
   }
   network_interface {
     subnetwork = "${var.instance_subnetwork1}"
-  }
-  metadata = {
-    windows-startup-script-url = "${var.instance_startupscript}"
   }
 }

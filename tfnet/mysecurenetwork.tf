@@ -56,5 +56,4 @@ module "vm-bastionhost" {
   instance_tags          = "allow-rdp"
   instance_subnetwork    = "${google_compute_subnetwork.securesubnet-us.self_link}"
   instance_subnetwork1   = "default"
-  instance_startupscript = "gs://win-startup-scripts/setupserver.ps1"
 }
