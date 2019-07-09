@@ -12,7 +12,7 @@ resource "google_compute_instance" "vm_instance" {
   name         = "${var.instance_name}"
   zone         = "${var.instance_zone}"
   machine_type = "${var.instance_type}"
-  tags         = ["${var.instance_tags}", "${var.instance_tags}1"]
+  tags         = ["${var.instance_tags}", "${var.instance_tags1}"]
   boot_disk {
     initialize_params {
       image = "${var.instance_imagetype}"
