@@ -22,26 +22,39 @@ resource "google_compute_firewall" "securenetwork-allow-rdp" {
   target_tags = ["allow-rdp"]
   source_ranges = ["0.0.0.0/0"]
 }
+# Add a firewall rule to allow HTTP traffic on securenetwork
+resource "google_compute_firewall" "securenetwork-allow-http" {
+  name = "securenetwork-allow-http"
+  network = "${google_compute_network.securenetwork.self_link}"
+  allow {
+      protocol = "tcp"
+      ports    = ["80"] 
+  }
+  target_tags = ["allow-http"]
+  source_ranges = ["0.0.0.0/0"]
+}
 # Add the vm-securehost instance
 module "vm-securehost" {
-  source              = "./instance"
-  instance_name       = "vm-securehost"
-  instance_zone       = "us-central1-a"
-  instance_type       = "n1-standard-1"
-  instance_tags       = "allow-rdp"
-  instance_imagetype  = "windows-cloud/windows-2016"
-  instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
-  instance_subnetwork1 = "default"
+  source                 = "./instance"
+  instance_name          = "vm-securehost"
+  instance_zone          = "us-central1-a"
+  instance_type          = "n1-standard-1"
+  instance_tags          = "allow-rdp"
+  instance_tags1         = "allow-http"
+  instance_imagetype     = "windows-cloud/windows-2016"
+  instance_subnetwork    = "${google_compute_subnetwork.securesubnet-us.self_link}"
+  instance_subnetwork1   = "default"
+  instance_startupscript = "gs://win-startup-scripts/setupserver.ps1"
 }
 # Add the vm-bastionhost instance
 module "vm-bastionhost" {
-  source              = "./bastionhost"
-  instance_name       = "vm-bastionhost"
-  instance_zone       = "us-central1-a"
-  instance_type       = "n1-standard-1"
-  instance_imagetype  = "windows-cloud/windows-2016"
-  instance_tags       = "allow-rdp"
-  instance_subnetwork = "${google_compute_subnetwork.securesubnet-us.self_link}"
-  instance_subnetwork1 = "default"
+  source                 = "./bastionhost"
+  instance_name          = "vm-bastionhost"
+  instance_zone          = "us-central1-a"
+  instance_type          = "n1-standard-1"
+  instance_imagetype     = "windows-cloud/windows-2016"
+  instance_tags          = "allow-rdp"
+  instance_subnetwork    = "${google_compute_subnetwork.securesubnet-us.self_link}"
+  instance_subnetwork1   = "default"
   instance_startupscript = "gs://win-startup-scripts/setupserver.ps1"
 }
