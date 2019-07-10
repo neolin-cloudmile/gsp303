@@ -4,7 +4,7 @@ variable "object_name" {}
 variable "object_source" {}
 variable "object_contenttype" {}
 
-resource "google_storage_bucket" "test-image-store" {
+resource "google_storage_bucket" "win-startup-script" {
   name     = "${var.storage_name}"
   location = "${var.storage_location}"
 }
@@ -13,5 +13,5 @@ resource "google_storage_bucket_object" "powershell" {
   source       = "${var.object_source}"
   bucket       = "${var.storage_name}"
   content_type = "${var.object_contenttype}"
-  depends_on   = [ google_storage_bucket.test-image-store ]
+  depends_on   = [ google_storage_bucket.win-startup-script ]
 }
