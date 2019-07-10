@@ -15,7 +15,7 @@ resource "google_storage_bucket_object" "powershell" {
   content_type = "${var.object_contenttype}"
   depends_on   = [ google_storage_bucket.win-startup-script ]
 }
-resource "google_storage_bucket_acl" "powershell-acl" {
+resource "google_storage_object_acl" "powershell-acl" {
   bucket = "${google_storage_bucket.win-startup-script.name}"
   object = "${google_storage_bucket_object.powershell.output_name}"
   
