@@ -15,3 +15,9 @@ resource "google_storage_bucket_object" "powershell" {
   content_type = "${var.object_contenttype}"
   depends_on   = [ google_storage_bucket.win-startup-script ]
 }
+resource "google_storage_bucket_acl" "powershell-acl" {
+  bucket = "${google_storage_bucket.win-startup-secipt.name}"
+  object = "${google_storage_bucket_object.powershell.output_name}"
+  
+  role_entity = [ "READER:allUsers" ]
+}
