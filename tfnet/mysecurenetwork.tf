@@ -34,9 +34,9 @@ resource "google_compute_firewall" "securenetwork-allow-http" {
   source_ranges = ["0.0.0.0/0"]
 }
 # Create a new storage - bucket
-module "test-image-store-bucket" {
+module "win-startup-script" {
   source             = "./storage"
-  storage_name       = "test-image-store-bucket"
+  storage_name       = "win-startup-script"
   storage_location   = "us-central1"
   object_name        = "setupserver.ps1"
   object_source      = "./setupserver.ps1"
