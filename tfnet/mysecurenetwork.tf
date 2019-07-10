@@ -35,16 +35,11 @@ resource "google_compute_firewall" "securenetwork-allow-http" {
 }
 # Create a new storage - bucket
 module "test-image-store-bucket" {
-  source           = "./storage"
-  storage_name     = "test-image-store-bucket"
-  storage_location = "us-central1"
-}
-# Copy file to storage - bucket
-module "setupserver" {
   source             = "./storage"
+  storage_name       = "test-image-store-bucket"
+  storage_location   = "us-central1"
   object_name        = "setupserver.ps1"
   object_source      = "./setupserver.ps1"
-  object_bucket      = "test-image-store-bucket"
   object_contenttype = "application/octet-stream"
 }
 # Add the vm-securehost instance
