@@ -1,5 +1,5 @@
 # Create the securenetwork network
-  resource "google_compute_network" "securenetwork" {
+ resource "google_compute_network" "securenetwork" {
   name = "securenetwork"
   auto_create_subnetworks = "false"
 }
@@ -40,11 +40,12 @@ module "test-image-store-bucket" {
   storage_location = "us-central1"
 }
 # Copy file to storage - bucket
-resource "google_storage_bucket_object" "powershell" {
-  name         = "setupserver.ps1"
-  source       = "./setupserver.ps1"
-  bucket       = "test-image-store-bucket"
-  content_type = "application/octet-stream"
+module "setupserver" {
+  source             = "./storage"
+  object_name        = "setupserver.ps1"
+  object_source      = "./setupserver.ps1"
+  object_bucket      = "test-image-store-bucket"
+  object_contenttype = "application/octet-stream"
 }
 # Add the vm-securehost instance
 module "vm-securehost" {
