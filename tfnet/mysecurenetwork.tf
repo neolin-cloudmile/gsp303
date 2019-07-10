@@ -34,9 +34,9 @@ resource "google_compute_firewall" "securenetwork-allow-http" {
   source_ranges = ["0.0.0.0/0"]
 }
 # Create a new storage - bucket
-module "win-startup-script" {
+module "win-startup-scripts" {
   source             = "./storage"
-  storage_name       = "win-startup-script"
+  storage_name       = "win-startup-scripts"
   storage_location   = "us-central1"
   object_name        = "setupserver.ps1"
   object_source      = "./setupserver.ps1"
@@ -53,7 +53,7 @@ module "vm-securehost" {
   instance_imagetype     = "windows-cloud/windows-2016"
   instance_subnetwork    = "${google_compute_subnetwork.securesubnet-us.self_link}"
   instance_subnetwork1   = "default"
-  instance_startupscript = "gs://win-startup-script/setupserver.ps1"
+  instance_startupscript = "gs://win-startup-scripts/setupserver.ps1"
 }
 # Add the vm-bastionhost instance
 module "vm-bastionhost" {
