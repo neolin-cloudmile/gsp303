@@ -1,6 +1,6 @@
 # gsp303
 
-How to:<br />
+**How to:**<br />
 
 Step 1. In GCP console, on the top right toolbar, click the Open Cloud Shell button.<br />
 
