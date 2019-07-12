@@ -1,5 +1,6 @@
 # gsp303
 
+How to:<br />
 Step 1. In GCP console, on the top right toolbar, click the Open Cloud Shell button.<br />
 
 Step 2. Clone the gsp303 repository from gitgub:<br />
@@ -20,7 +21,7 @@ Step.5 Run Terraform<br />
 
 Step 6. Verify resource created bu Terraform<br />
 
-Reference
+Reference:`<br />
 Automating IIS Feature Installation with Powershell<br />
 https://weblog.west-wind.com/posts/2017/may/25/automating-iis-feature-installation-with-powershell
 
