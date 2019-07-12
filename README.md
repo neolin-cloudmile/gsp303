@@ -5,7 +5,7 @@
 Step 1. In GCP console, on the top right toolbar, click the Open Cloud Shell button.<br />
 
 Step 2. Clone the gsp303 repository from gitgub:<br />
-> git clone https://github.com/neolin-cloudmile/gsp303.git
+> git clone https://github.com/neolin-cloudmile/gsp303.git<br />
 > cd gsp303
 
 Step 3. Setup the environment and install Terraform<br />
@@ -15,10 +15,10 @@ Step 4. Go to the folder tfnet<br />
 > cd tfnet
 
 Step.5 Run Terraform<br />
-> terraform init
-> terraform fmt
-> terraform plan
-> terraform apply
+> terraform init<br />
+> terraform fmt<br />
+> terraform plan<br />
+> terraform apply<br />
 
 Step 6. Verify resource created bu Terraform<br />
 
