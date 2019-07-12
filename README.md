@@ -20,7 +20,7 @@ Step.5 Run Terraform, running this creation tasks approximately 3-5 minutes<br /
 > terraform plan<br />
 > terraform apply<br />
 
-Step 6. Verify resource created bu Terraform<br />
+Step 6. Verify resource created by Terraform<br />
 
 Step 7. Run terraform destroy to destroy the resource, this destroy tasks approximately 3-5 minutes<br />
 
