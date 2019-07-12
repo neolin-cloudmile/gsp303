@@ -1,5 +1,26 @@
 # gsp303
 
+Step 1. In GCP console, on the top right toolbar, click the Open Cloud Shell button.<br />
+
+Step 2. Clone the gsp303 repository from gitgub:<br />
+> git clone https://github.com/neolin-cloudmile/gsp303.git
+> cd gsp303
+
+Step 3. Setup the environment and install Terraform<br />
+> ./setup_terraform_and_cloud_shell.sh
+
+Step 4. Go to the folder tfnet<br />
+> cd tfnet
+
+Step.5 Run Terraform<br />
+> terraform init
+> terraform fmt
+> terraform plan
+> terraform apply
+
+Step 6. Verify resource created bu Terraform<br />
+
+Reference
 Automating IIS Feature Installation with Powershell<br />
 https://weblog.west-wind.com/posts/2017/may/25/automating-iis-feature-installation-with-powershell
 
