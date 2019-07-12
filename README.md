@@ -1,4 +1,4 @@
-# gsp303
+# GSP303 Configure Secure RDP using a Windows Bastion Host
 
 **How to:**<br />
 
