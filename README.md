@@ -14,13 +14,15 @@ Step 3. Setup the environment and install Terraform<br />
 Step 4. Go to the folder tfnet<br />
 > cd tfnet
 
-Step.5 Run Terraform<br />
+Step.5 Run Terraform, running this creation tasks approximately 3-5 minutes<br />
 > terraform init<br />
 > terraform fmt<br />
 > terraform plan<br />
 > terraform apply<br />
 
 Step 6. Verify resource created bu Terraform<br />
+
+Step 7. Run terraform destroy to destroy the resource, this destroy tasks approximately 3-5 minutes<br />
 
 **Reference:**<br />
 
