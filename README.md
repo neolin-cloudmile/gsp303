@@ -1,4 +1,5 @@
 # GSP303 Configure Secure RDP using a Windows Bastion Host
+Terraform v0.12.2<br />
 
 **How to:**<br />
 
