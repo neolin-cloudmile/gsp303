@@ -1,5 +1,6 @@
 # GSP303 Configure Secure RDP using a Windows Bastion Host
-Terraform v0.12.2<br />
+Terraform v0.12.4<br />
++ provider.google v2.10.0<br />
 
 **How to:**<br />
 
